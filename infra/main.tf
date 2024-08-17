@@ -53,10 +53,14 @@ resource "aws_security_group" "jenkins_sg" {
 
 resource "aws_instance" "jenkins" {
   ami           = "ami-00cf59bc9978eb266" # Amazon Linux 2 AMI
-  instance_type = "t2.micro"
+  instance_type = "t2.medium"
   subnet_id     = aws_subnet.main.id
   vpc_security_group_ids = [aws_security_group.jenkins_sg.id]
   associate_public_ip_address = true
+
+  root_block_device {
+    volume_size = 25 # Size in GB (change to your desired size)
+  }
 
   user_data = <<-EOF
               #!/bin/bash
