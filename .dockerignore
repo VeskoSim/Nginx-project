@@ -1,2 +1,5 @@
 helm/
-terraform/
+infra/
+README.md
+Jenkinsfile
+terraform.*
