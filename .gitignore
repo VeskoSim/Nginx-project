@@ -27,3 +27,5 @@ override.tf.json
 # Ignore any other files related to local settings
 .terraformrc
 terraform.rc
+
+.venv
