@@ -1,8 +1,5 @@
 pipeline {
     agent any
-    enviroment {
-        VERSION='$GIT_COMMIT'
-    }
     
     stages {
         stage('Build') {
