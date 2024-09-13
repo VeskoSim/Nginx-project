@@ -8,6 +8,10 @@ app = Flask(__name__)
 # Променлива на околната среда
 env = os.getenv('ENV', 'Development')
 
+@app.route('/health', methods=['GET'])
+def health_check():
+    return {'status': 'healthy'}, 200
+
 @app.route("/")
 def home():
     # Променяме съобщението за тестване
