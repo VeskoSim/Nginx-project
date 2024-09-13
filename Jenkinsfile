@@ -21,6 +21,7 @@ pipeline {
             steps {
                 echo 'Deploying....'
                 sh 'docker system prune'
+                sh 'docker rm --force test'
                 sh 'docker run -dit --name test -p 5000:5000 833923550005.dkr.ecr.eu-central-1.amazonaws.com/jenkins-repo:$GIT_COMMIT'
             }
         }
