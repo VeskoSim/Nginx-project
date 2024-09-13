@@ -20,8 +20,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-                sh 'docker rm --force viewme'
-                sh 'docker run -dit --name viewme -p 5000:5000 833923550005.dkr.ecr.eu-central-1.amazonaws.com/jenkins-repo:$GIT_COMMIT'
+                sh 'docker system prune'
+                sh 'docker run -dit --name test -p 5000:5000 833923550005.dkr.ecr.eu-central-1.amazonaws.com/jenkins-repo:$GIT_COMMIT'
             }
         }
     }
