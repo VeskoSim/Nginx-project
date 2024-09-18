@@ -5,7 +5,7 @@ import os
 
 app = Flask(__name__)
 
-# Променлива на околната среда
+# Environment variable
 env = os.getenv('ENV', 'Development')
 
 @app.route('/health', methods=['GET'])
@@ -14,17 +14,17 @@ def health_check():
 
 @app.route("/")
 def home():
-    # Променяме съобщението за тестване
+    # Changing the message for testing
     return render_template('index-2.html')
 
 @app.route("/hello")
 def hello():
-    # Променяме съобщението за тестване
+    # Changing the message for testing
     return f"Hello from {env}! This is the updated version."
 
 @app.route("/picture")
 def pic():
-    # Зарежда шаблона index.html
+    # Loads the template index.html
     return render_template('index.html')
 
 @app.route("/user/<username>")
